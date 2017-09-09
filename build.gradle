@@ -1,0 +1,45 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.6.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+configurations {
+	//all*.exclude module: "spring-boot-starter-logging"
+	providedRuntime
+}
+
+dependencies {
+
+	[
+        "org.springframework.boot:spring-boot-starter-web",
+        "org.springframework.boot:spring-boot-starter-jersey",
+        "org.springframework.boot:spring-boot-starter-data-jpa",
+        "org.springframework.boot:spring-boot-devtools",
+        "org.springframework.boot:spring-boot-starter-test"
+    ].each { dep -> compile(dep) {
+        }
+    }
+    compile 'mysql:mysql-connector-java:5.1.31'
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    
+} 
+
