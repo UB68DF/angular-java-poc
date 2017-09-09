@@ -1,3 +1,4 @@
+FROM centos:centos6
 FROM java:8
 
 RUN curl -L https://services.gradle.org/distributions/gradle-4.1-bin.zip -o gradle-4.1-bin.zip
