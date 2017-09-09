@@ -10,14 +10,14 @@ RUN unzip gradle-4.1-bin.zip
 ENV GRADLE_HOME=/app/gradle-4.1
 ENV PATH=$PATH:$GRADLE_HOME/bin
 
-RUN tree -d /proc/self/
+RUN ["gradle", "build"]
 
 #docker build -t gradle
 
-#EXPOSE 8080
+EXPOSE 8080
 
-#RUN mkdir -p /app/
+RUN mkdir -p /app/
 
-#ADD build/libs/sixth-block-demo.jar /app/sixth-block-demo.jar
+ADD build/libs/sixth-block-demo.jar /app/sixth-block-demo.jar
 
-#ENTRYPOINT ["java", "-jar", "/app/sixth-block-demo.jar"]
+ENTRYPOINT ["java", "-jar", "/app/sixth-block-demo.jar"]
