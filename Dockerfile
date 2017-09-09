@@ -5,13 +5,14 @@ RUN curl -L https://services.gradle.org/distributions/gradle-4.1-bin.zip -o grad
 RUN apt-get install -y unzip
 RUN unzip gradle-4.1-bin.zip
 
-#RUN echo 'export GRADLE_HOME=/app/gradle-4.1' >> $HOME/.bashrc
-#RUN echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
+
 
 ENV GRADLE_HOME=/app/gradle-4.1
 ENV PATH=$PATH:$GRADLE_HOME/bin
 
-RUN gradle clean build
+RUN tree -d /proc/self/
+
+docker build -t gradle
 
 EXPOSE 8080
 
