@@ -1,4 +1,6 @@
-FROM docker.sixthblock.com/java:1.8.0
-EXPOSE 8080 8888
+FROM java:8
 
-CMD["java", "-jar", "sixth-block-demo.jar"]
+EXPOSE 8080
+RUN mkdir -p /app/
+ADD build/libs/sixth-block-demo.jar /app/sixth-block-demo.jar
+ENTRYPOINT ["java", "-jar", "/app/sixth-block-demo.jar"]
