@@ -11,11 +11,7 @@ RUN unzip gradle-4.1-bin.zip
 ENV GRADLE_HOME=/app/gradle-4.1
 ENV PATH=$PATH:$GRADLE_HOME/bin
 
-#RUN source ~/.bashrc
-
-RUN cd /src; gradle clean build
-
-#RUN gradle clean build
+RUN gradle clean build
 
 EXPOSE 8080
 
