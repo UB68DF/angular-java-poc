@@ -7,7 +7,7 @@ RUN unzip gradle-4.1-bin.zip
 
 
 
-ENV GRADLE_HOME=/app/gradle-4.1
+ENV GRADLE_HOME=/gradle-4.1
 ENV PATH=$PATH:$GRADLE_HOME/bin
 
 RUN ["gradle", "build"]
