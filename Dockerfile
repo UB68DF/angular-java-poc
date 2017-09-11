@@ -10,12 +10,14 @@ ENV PATH=$PATH:$GRADLE_HOME/bin
 
 RUN ["gradle", "build"]
 
+echo $HOME
+
 #docker build -t gradle
 
 EXPOSE 8080
 
 RUN mkdir -p /app/
 
-ADD /build/libs/sixth-block-demo.jar /app/sixth-block-demo.jar
+#ADD /build/libs/sixth-block-demo.jar /app/sixth-block-demo.jar
 
 ENTRYPOINT ["java", "-jar", "/app/sixth-block-demo.jar"]
