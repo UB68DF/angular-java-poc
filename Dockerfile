@@ -12,6 +12,10 @@ RUN ["gradle", "build"]
 
 RUN echo $HOME
 
+RUN echo $PATH
+
+RUN echo $GRADLE_HOME
+
 #docker build -t gradle
 
 EXPOSE 8080
