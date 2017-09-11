@@ -1,8 +1,7 @@
 
 FROM java:8
-FROM centos:centos6
 
-MAINTAINER nikhil@sixthblock.com
+
 
 
 RUN curl -L https://services.gradle.org/distributions/gradle-4.1-bin.zip -o gradle-4.1-bin.zip
