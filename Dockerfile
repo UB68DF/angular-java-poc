@@ -1,5 +1,9 @@
 
 FROM java:8
+FROM centos:centos6
+
+MAINTAINER nikhil@sixthblock.com
+
 
 RUN curl -L https://services.gradle.org/distributions/gradle-4.1-bin.zip -o gradle-4.1-bin.zip
 RUN apt-get install -y unzip
@@ -16,8 +20,8 @@ RUN ["gradle", "build"]
 
 EXPOSE 8080
 
-RUN mkdir -p /app/
+#RUN mkdir -p /app/
 
-COPY sixth-block-demo.jar /app/sixth-block-demo.jar
+ADD build/libs/sixth-block-demo.jar /sixth-block-demo.jar
 
-ENTRYPOINT ["java", "-jar", "/app/sixth-block-demo.jar"]
+ENTRYPOINT ["java", "-jar", "/sixth-block-demo.jar"]
