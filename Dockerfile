@@ -21,6 +21,6 @@ EXPOSE 8080
 
 #RUN mkdir -p /app/
 
-ADD build/libs/sixth-block-demo.jar /sixth-block-demo.jar
+#ADD build/libs/sixth-block-demo.jar /sixth-block-demo.jar
 
 ENTRYPOINT ["java", "-jar", "/sixth-block-demo.jar"]
