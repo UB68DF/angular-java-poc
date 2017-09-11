@@ -10,7 +10,7 @@ ENV PATH=$PATH:$GRADLE_HOME/bin
 
 RUN ["gradle", "build"]
 
-echo $HOME
+RUN echo $HOME
 
 #docker build -t gradle
 
